@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="da">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Terminal kommandoer</title>
+    <style>
+        .command {
+            padding: 1em;
+            background-color: #232222;
+            color: rgb(62, 190, 16);
+            border-radius: 1em;
+            margin-bottom: 1em;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Liste over terminal kommandoer</h1>
+        <p>Her får du en liste over kommandoer som du kan bruge når du skal arbejde i en terminal</p>
+        <h2>Syntax for en kommando</h2>
+        <p>Alle kommandoer følger samme mønster</p>
+        <pre>kommandonavn -parameter input</pre>
+        <p>Hvor</p>
+        <ul>
+            <li>kommandonavn = navnet på kommandoen, f.eks. <pre>ls</pre></li>
+            <li>parameter = en eller flere parametre til kommandoen, f.eks. <pre>-l</pre></li>
+            <li>input = input til kommandoen, f.eks. navnet på den fil du vil slette med <pre>rm</pre> kommandoen</li>
+        </ul>
+        <p><strong>Bemærk: Det er ikke alle kommandoer der har parametre eller input</strong></p>
+        <p><strong>Bemærk også: Nogle parametre kan kombineres, f.eks</strong></p><pre>-l -a</pre>kan også skrives <pre>-la</pre>
+        <p>Nok snak, lad os komme i gang!</p>
+    </header>
+    <main>
+        <section class="command">
+            <h2>ssh</h2>
+            <p>ssh (Secure Shell) bruges til at få adgang til en anden computer fra din computer</p>
+            <p>Det kræver at du kender IP adressen for den computer du vil forbindes til (og at der er en SSH server på den anden computer)</p>
+            <h3>Eksempel</h3>
+            <p>Du angiver din bruger og IP adresse, adskilt af et @</p>
+            <pre>ssh codingpirates@192.168.1.45</pre>
+        </section>
+        <section class="command">
+            <h2>ls</h2>
+            <p>ls – list directory contents, viser dig indeholdet af en mappe</p>
+            <h3>Nyttige parametre</h3>
+            <ul>
+                <li>a: Vis også skjulte filer</li>
+                <li>l: list i "long format"</li>
+            </ul>
+        </section>
+        <section class="command">
+            <h2>pwd</h2>
+            <p>pwd – return working directory name. Viser dig hvor du står i filsystemet lige nu</p>
+        </section>
+        <section class="command">
+            <h2>cd</h2>
+            <p>Change directory, skifter til det directory du har angivet</p>
+            <h3>Nyttige parametre</h3>
+            <ul>
+                <li>..: hopper et niveau op</li>
+            </ul>
+            <p>Prøv: Hvor ender I hvis I skriver</p><pre>cd</pre>
+        </section>
+        <section class="command">
+            <h2>mkdir</h2>
+            <p>Make Directory, lav en ny mappe</p>
+            <h3>Input</h3>
+            <p>Navnet på den mappe I vil oprette, f.eks:</p><pre>mkdir minMappe</pre>
+            <strong>Bemærk: Hvis der er mellemrum i jeres mappenavn bliver det til to mapper, prøv f.eks:</strong><pre>mkdir hvad sker der her</pre>
+            <strong>Bemærk også: Hvis I <em>vil</em> have en mappe med mellemrum skal I pakke navnet ind i ", f.eks:</strong><pre>mkdir "mappe med mellemrum"</pre>
+        </section>
+        <section class="command">
+            <h2>touch</h2>
+            <p>Lav en ny tom fil</p>
+            <h3>Input</h3>
+            <p>Navnet på filen</p>
+            <strong>Bemærk: Samme regler som ovenfor med mellemrum i filnavnet</strong>
+        </section>
+        <section class="command">
+            <h2>less (eller cat)</h2>
+            <p>Viser indeholdet af en fil</p>
+            <h3>Input</h3>
+            <p>Navnet på filen du gerne vil se indholdet af</p>
+            <strong>Bemærk: For at komme ud af filen igen skal du trykke</strong><pre>q</pre>
+            <h3>Gode kommandoer i less</h3>
+            <ul>
+                <li>shift + g: Hop til enden af filen</li>
+                <li>n + nummer: Hop til det linie nummer</li>
+            </ul>
+        </section>
+        <section class="command">
+            <h2>mv</h2>
+            <p>Move file, flyt filen</p>
+            <h3>Input</h3>
+            <p>Stien du vil flytte til</p>
+        </section>
+        <section class="command">
+            <h2>cp</h2>
+            <p>Copy file, lav en kopi af en fil</p>
+            <h3>Inout</h3>
+            <ul>
+                <li>fra sti: Hvor skal files kopieres fra</li>
+                <li>til sti: Hvor skal filen kopieres til</li>
+            </ul>
+            <h3>Eksempel</h3>
+            <pre>cp min_fil min_fil_med_nyt_navn</pre>
+            <p>Nu har vi to filer, "min_fil" og "min_fil_med_nyt_navn"</p>
+        </section>
+        <section class="command">
+            <h2>rm</h3>
+            <p>remove file, slet filen</p>
+            <h3>Input</h3>
+            <p>Sti til filen der skal slettes</p>
+            <strong>Bemærk: Der er ingen "er du sikker på at du vil slette filen?" advarsler her, den bliver bare rykket rundt!</strong>
+        </section>
+        <section class="command">
+            <h2>rmdir</h2>
+            <p>remove dir</p>
+            <h3>Input</h3>
+            <p>Sti til mappen der skal slettes</p>
+            <strong>Bemærk: Hvis mappen ikke er tom kan du ikke få lov at slette den med rmdir, så kan du i stedet bruge</strong><pre>rm -rf foldername</pre>
+        </section>
+        <section class="command">
+            <h2>man</h2>
+            <p>manual page. Kan vise dig hjælp for en kommando</p>
+            <h3>Input</h3>
+            <p>Navn på kommando du gerne vil læse om, f.eks.</p><pre>man</pre>
+            <strong>Bemærk: Du kan bruge de samme kommandoer til at navigere rundt i filen som du brugte til less kommandoen</strong>
+        </section>
+    </main>
+</body>
+</html>
