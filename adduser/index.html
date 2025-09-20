@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="da">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tilføj bruger</title>
+    <style>
+        .command {
+            padding: 1em;
+            background-color: #232222;
+            color: rgb(62, 190, 16);
+            border-radius: 1em;
+            margin-bottom: 1em;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Tilføj bruger</h1>
+        <p>For at oprette en ny bruger skal vi bruge kommandoen</p>
+        <pre>adduser</pre>
+        <p>Og samtidig kræver det at vi er super brugere, dvs. enten at vi er root brugeren, eller at vi er en bruger der kan få lov til at køre kommandoen</p>
+        <pre>sudo</pre>
+        <p>Vi skal igennem to ting</p>
+        <ol>
+            <li>Opret brugeren</li>
+            <li>Tilføj den nye bruger til sudo gruppen så brugerne kan køre nogle kommandoer</li>
+        </ol>
+        <p>Et eksempel</p>
+    </header>
+    <main>
+        <section class="command">
+            <h2>adduser</h2>
+            <p>Det første vi skal gøre er at køre adduser med navnet på den bruger vi gerne vil oprette</p>
+            <h3>Eksempel</h3>
+            <p>Jeg er logget ind på en Raspberry Pi med codingpirates brugeren og skriver nu</p>
+            <pre>
+sudo adduser peter
+perl: warning: Setting locale failed.
+perl: warning: Please check that your locale settings:
+     LANGUAGE = (unset),
+     LC_ALL = (unset),
+     LC_CTYPE = "UTF-8",
+     LANG = "en_GB.UTF-8"
+    are supported and installed on your system.
+perl: warning: Falling back to a fallback locale ("en_GB.UTF-8").
+Adding user `peter' ...
+Adding new group `peter' (1001) ...
+Adding new user `peter' (1001) with group `peter (1001)' ...
+Creating home directory `/home/peter' ...
+Copying files from `/etc/skel' ...
+New password: 
+Retype new password: 
+passwd: password updated successfully
+Changing the user information for peter
+Enter the new value, or press ENTER for the default
+	Full Name []: Peter
+	Room Number []: 
+	Work Phone []: 
+	Home Phone []: 
+	Other []: 
+Is the information correct? [Y/n] Y
+Adding new user `peter' to supplemental / extra groups `users' ...
+Adding user `peter' to group `users' ...
+            </pre>
+            <p>Nu er min bruger oprettet men for at give den lov til også at kunne lave sudo kommandoer skal den tilføjes til sudo gruppen. Det gør vi med</p>
+            <pre>
+codingpirates@raspberrypi:/home/peter $ sudo adduser peter sudo
+perl: warning: Setting locale failed.
+perl: warning: Please check that your locale settings:
+	LANGUAGE = (unset),
+	LC_ALL = (unset),
+	LC_CTYPE = "UTF-8",
+	LANG = "en_GB.UTF-8"
+    are supported and installed on your system.
+perl: warning: Falling back to a fallback locale ("en_GB.UTF-8").
+Adding user `peter' to group `sudo' ...
+Done.
+            </pre>
+            <p>Tada 🎉. Nu kan vi skifte over til den nye bruger, enten direkte med</p>
+            <pre>su brugernavn</pre>
+            <p>Eller bare næste gang vi logger ind</p>
+        </section>
+        <section class="command">
+            <h2>Slet bruger</h2>
+            <p>For at slette en bruger skriver vi</p>
+            <pre>sudo deluser --remove-home brugernavn</pre>
+        </section>
+    </main>
+</body>
+</html>
